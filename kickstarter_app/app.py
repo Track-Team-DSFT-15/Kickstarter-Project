@@ -18,6 +18,20 @@ def create_app():
 
         return render_template("base.html",
                                project_name=project_name,
+                               id=id,
+                               project_name=project_name,
+                               category=category,
+                               main_category=main_category,
+                               currency=currency,
+                               deadline=deadline,
+                               goal=goal,
+                               launched=launched,
+                               pledged=pledged,
+                               backers=backers,
+                               country=country,
+                               usd_pledged=usd_pledged,
+                               usd_pledged_real=usd_pledged_real,
+                               usd_goal_real=usd_goal_real
                                )
 
     # endpoint == "user_submitted"
