@@ -15,8 +15,10 @@ def create_app():
 
     @app.route("/")
     def root():
-        users = User.query.all()
-        return render_template("base.html", users=users)
+
+        return render_template("base.html",
+                               project_name=project_name,
+                               )
 
     # endpoint == "user_submitted"
 
