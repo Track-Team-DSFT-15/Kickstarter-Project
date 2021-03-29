@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Kickstarter-Project.iml" filepath="$PROJECT_DIR$/.idea/Kickstarter-Project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kickstarter_app/templates/.idea/templates.iml" filepath="$PROJECT_DIR$/kickstarter_app/templates/.idea/templates.iml" />
     </modules>
   </component>
 </project>

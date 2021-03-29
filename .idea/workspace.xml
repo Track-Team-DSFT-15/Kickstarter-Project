@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="729f9ff9-0cb4-4306-9ac5-0d093d07f864" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/kickstarter_app/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kickstarter_app/app.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kickstarter_app/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kickstarter_app/prediction.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kickstarter_app/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Kickstarter-Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Kickstarter-Project.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ks-projects-201801.csv.zip" beforeDir="false" afterPath="$PROJECT_DIR$/kickstarter_app/ks-projects-201801.csv.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zip_unpack.py" beforeDir="false" afterPath="$PROJECT_DIR$/kickstarter_app/zip_unpack.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,11 +32,17 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Documents/Github/DS24_single_page/tweepy/templates" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\soxsu\OneDrive\Documents\GitHub\Kickstarter-Project\kickstarter_app" />
+      <recent name="C:\Users\soxsu\OneDrive\Documents\GitHub\Kickstarter-Project" />
+    </key>
   </component>
   <component name="RunManager" selected="Python.zip_unpack">
     <configuration name="Test_interpreter" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -103,6 +106,7 @@
       <updated>1617048014269</updated>
       <workItem from="1617048016913" duration="718000" />
       <workItem from="1617051078857" duration="577000" />
+      <workItem from="1617053060223" duration="1204000" />
     </task>
     <servers />
   </component>
@@ -123,6 +127,6 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Kickstarter_Project$Test_interpreter.coverage" NAME="Test_interpreter Coverage Results" MODIFIED="1617048391802" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Kickstarter_Project$zip_unpack.coverage" NAME="zip_unpack Coverage Results" MODIFIED="1617051358826" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Kickstarter_Project$zip_unpack.coverage" NAME="zip_unpack Coverage Results" MODIFIED="1617053629088" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

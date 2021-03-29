@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Twitter API Practice</title>
+    <link rel="stylesheet" href="https://unpkg.com/picnic">
+  </head>
+  
+  <body>
+    <article class="flex two" style="padding: 3em 1em">
+      {% block content %}
+      <div>
+        <h1>Twitter API Practice</h1>
+        <form action="/user_submitted" method="post">
+          <input type="text" name="username" placeholder="Enter a username">
+          <input type="submit" value="Submit">
+        </form>
+      </div>
+      <div>
+        {% for user in users %}
+        <span class="stack">
+          {{ user }}
+        </span>
+        {% endfor %}
+      </div>
+      {% endblock %}
+    </article>
+  </body>
+</html>
