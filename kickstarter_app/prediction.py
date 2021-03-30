@@ -4,6 +4,9 @@ from .models import User, DB
 import pandas as pd
 import pickle
 
+
+
+
 def predict_user():
     dict = {col.name: [getattr(User.query.all()[0], str(col.name))] for col in User.__table__.columns}
     df = pd.DataFrame(dict).set_index('id')

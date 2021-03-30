@@ -5,6 +5,7 @@ from .models import DB, User
 # from .twitter import get_info_and_add
 from datetime import datetime
 import pandas as pd
+from .prediction import predict_user
 
 def create_app():
     """The function that will run inside __init__.py"""
@@ -21,18 +22,8 @@ def create_app():
     # Repl
     @app.route("/repl")
     def repl():
-        dict = {col.name: [getattr(User.query.all()[0], str(col.name))] for col in User.__table__.columns}
-        df = pd.DataFrame(dict).set_index('id')
-
-        # df = pd.DataFrame(columns=['project_name', 'category', 'main_category',
-        #                              'currency', 'deadline', 'goal', 'launched',
-        #                              'pledged', 'backers', 'country', 'usd_pledged',
-        #                              'usd_pledged_real', 'usd_goal_real'])
-        # dictionary = User.query.all()[0].__dict__
-        # df = df.append(dictionary, ignore_index=True)
-        # for key in dictionary:
-        #     df[key] = dictionary[key]
-        return str(df)
+        pred = predict_user()
+        return str(pred)
 
     # endpoint == "user_submitted"
 
