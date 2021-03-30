@@ -21,6 +21,7 @@ def create_app():
 
     @app.route("/user_submitted", methods=["POST"])
     def user_submitted():
+        id = (User.query.all()['id'][-1]) + 1
         project_name = request.values['project_name']
         category = request.values['category']
         main_category = request.values['main_category']
@@ -39,7 +40,8 @@ def create_app():
         # dtypes: user = <user twitter object>, user_tweets = <tweets list>
         # DB_user = get_info_and_add(username_1)
         # DB_user2 = get_info_and_add(username_2)
-        record = User(project_name=project_name,
+        record = User(id=id,
+                    project_name=project_name,
                     category=category,
                     main_category=main_category,
                    currency=currency,
