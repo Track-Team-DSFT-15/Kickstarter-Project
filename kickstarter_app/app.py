@@ -4,6 +4,7 @@ from flask import Flask, render_template, request
 from .models import DB, User
 # from .twitter import get_info_and_add
 from datetime import datetime
+import pandas as pd
 
 def create_app():
     """The function that will run inside __init__.py"""
@@ -17,55 +18,58 @@ def create_app():
     def root():
         return render_template("base.html")
 
-# Repl
-    # @app.route("/repl")
-    # def repl():
-    #     count = User.query.filter_by(id='0').count()
-    #     if count > 0:
-    #         id = 'user exists'
-    #     else:
-    #         id = 'user doesnt exist'
-    #     return (str(id))
+    # Repl
+    @app.route("/repl")
+    def repl():
+        df = pd.DataFrame(columns=['project_name', 'category', 'main_category',
+                                     'currency', 'deadline', 'goal', 'launched',
+                                     'pledged', 'backers', 'country', 'usd_pledged',
+                                     'usd_pledged_real', 'usd_goal_real'])
+        dictionary = User.query.all()[0].__dict__
+        df = df.append(dictionary, ignore_index=True)
+        # for key in dictionary:
+        #     df[key] = dictionary[key]
+        return df
 
     # endpoint == "user_submitted"
 
     @app.route("/user_submitted", methods=["POST"])
     def user_submitted():
-       if User.query.filter_by(id='0').count() > 0:
+        if User.query.filter_by(id='0').count() > 0:
             id = User.query.all()[-1].id + 1
-       else:
+        else:
             id = 0
-       project_name = request.values['project_name']
-       category = request.values['category']
-       main_category = request.values['main_category']
-       currency = request.values['currency']
-       deadline = datetime.strptime(request.values['deadline'], '%Y-%m-%d')
-       goal = request.values['goal']
-       launched = datetime.strptime(request.values['launched'], '%Y-%m-%d')
-       pledged = request.values['pledged']
-       backers = request.values['backers']
-       country = request.values['country']
-       usd_pledged = request.values['usd_pledged']
-       usd_pledged_real = request.values['usd_pledged_real']
-       usd_goal_real = request.values['usd_goal_real']
+        project_name = request.values['project_name']
+        category = request.values['category']
+        main_category = request.values['main_category']
+        currency = request.values['currency']
+        deadline = datetime.strptime(request.values['deadline'], '%Y-%m-%d')
+        goal = request.values['goal']
+        launched = datetime.strptime(request.values['launched'], '%Y-%m-%d')
+        pledged = request.values['pledged']
+        backers = request.values['backers']
+        country = request.values['country']
+        usd_pledged = request.values['usd_pledged']
+        usd_pledged_real = request.values['usd_pledged_real']
+        usd_goal_real = request.values['usd_goal_real']
 
-       record = User(id=id,
-                    project_name=project_name,
-                    category=category,
-                    main_category=main_category,
-                   currency=currency,
-                   deadline=deadline,
-                   goal=goal,
-                   launched=launched,
-                   pledged=pledged,
-                   backers=backers,
-                   country=country,
-                   usd_pledged=usd_pledged,
-                   usd_pledged_real=usd_pledged_real,
-                   usd_goal_real=usd_goal_real)
-       DB.session.add(record)
-       DB.session.commit()
-       return render_template("user.html",
+        record = User(id=id,
+                      project_name=project_name,
+                      category=category,
+                      main_category=main_category,
+                      currency=currency,
+                      deadline=deadline,
+                      goal=goal,
+                      launched=launched,
+                      pledged=pledged,
+                      backers=backers,
+                      country=country,
+                      usd_pledged=usd_pledged,
+                      usd_pledged_real=usd_pledged_real,
+                      usd_goal_real=usd_goal_real)
+        DB.session.add(record)
+        DB.session.commit()
+        return render_template("user.html",
                                project_name=project_name,
                                category=category,
                                main_category=main_category,
