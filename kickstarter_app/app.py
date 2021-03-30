@@ -21,15 +21,18 @@ def create_app():
     # Repl
     @app.route("/repl")
     def repl():
-        df = pd.DataFrame(columns=['project_name', 'category', 'main_category',
-                                     'currency', 'deadline', 'goal', 'launched',
-                                     'pledged', 'backers', 'country', 'usd_pledged',
-                                     'usd_pledged_real', 'usd_goal_real'])
-        dictionary = User.query.all()[0].__dict__
-        df = df.append(dictionary, ignore_index=True)
+        dict = {col.name: [getattr(User.query.all()[0], str(col.name))] for col in User.__table__.columns}
+        df = pd.DataFrame(dict).set_index('id')
+
+        # df = pd.DataFrame(columns=['project_name', 'category', 'main_category',
+        #                              'currency', 'deadline', 'goal', 'launched',
+        #                              'pledged', 'backers', 'country', 'usd_pledged',
+        #                              'usd_pledged_real', 'usd_goal_real'])
+        # dictionary = User.query.all()[0].__dict__
+        # df = df.append(dictionary, ignore_index=True)
         # for key in dictionary:
         #     df[key] = dictionary[key]
-        return df
+        return str(df)
 
     # endpoint == "user_submitted"
 
@@ -43,30 +46,31 @@ def create_app():
         category = request.values['category']
         main_category = request.values['main_category']
         currency = request.values['currency']
-        deadline = datetime.strptime(request.values['deadline'], '%Y-%m-%d')
+        deadline = pd.to_datetime(request.values['deadline'])
         goal = request.values['goal']
-        launched = datetime.strptime(request.values['launched'], '%Y-%m-%d')
+        launched = pd.to_datetime(request.values['launched'])
         pledged = request.values['pledged']
         backers = request.values['backers']
         country = request.values['country']
         usd_pledged = request.values['usd_pledged']
         usd_pledged_real = request.values['usd_pledged_real']
         usd_goal_real = request.values['usd_goal_real']
+        days = deadline - launched
+        days = int(days.days)
 
         record = User(id=id,
                       project_name=project_name,
                       category=category,
                       main_category=main_category,
                       currency=currency,
-                      deadline=deadline,
                       goal=goal,
-                      launched=launched,
                       pledged=pledged,
                       backers=backers,
                       country=country,
                       usd_pledged=usd_pledged,
                       usd_pledged_real=usd_pledged_real,
-                      usd_goal_real=usd_goal_real)
+                      usd_goal_real=usd_goal_real,
+                      days=days)
         DB.session.add(record)
         DB.session.commit()
         return render_template("user.html",
