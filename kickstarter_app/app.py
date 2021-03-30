@@ -3,7 +3,7 @@ from os import getenv
 from flask import Flask, render_template, request
 from .models import DB, User
 # from .twitter import get_info_and_add
-
+from datetime import datetime
 
 def create_app():
     """The function that will run inside __init__.py"""
@@ -25,9 +25,9 @@ def create_app():
         category = request.values['category']
         main_category = request.values['main_category']
         currency = request.values['currency']
-        deadline = request.values['deadline']
+        deadline = datetime.strptime(request.values['deadline'], '%Y-%m-%d')
         goal = request.values['goal']
-        launched = request.values['launched']
+        launched = datetime.strptime(request.values['launched'], '%Y-%m-%d')
         pledged = request.values['pledged']
         backers = request.values['backers']
         country = request.values['country']
