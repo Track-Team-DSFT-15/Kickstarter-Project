@@ -10,6 +10,8 @@ flask = "*"
 flask-sqlalchemy = "*"
 spacy = "*"
 sklearn = "*"
+notebook = "*"
+category-encoders = "*"
 
 [dev-packages]
 

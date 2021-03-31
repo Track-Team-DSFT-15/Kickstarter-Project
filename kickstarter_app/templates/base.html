@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Kickstarter Success Prediction</title>
+    <link rel="stylesheet" href="https://unpkg.com/picnic">
+  </head>
+  
+  <body>
+    <article class="flex two" style="padding: 3em 1em">
+      {% block content %}
+      <div>
+        <h1>Kickstarter Success Prediction</h1>
+        <form action="/user_submitted" method="post">
+{#          <input type="text" name="project_name" value= "Jon is a hobbit" placeholder="Enter a project name">#}
+{#          <input type="text" name="category" value= "Film and Media" placeholder="Enter a category">#}
+{#          <input type="text" name="main_category" value= "Movies" placeholder="Enter a main_category">#}
+{#          <input type="text" name="currency" value="USD" placeholder="Enter a currency (three characters)">#}
+{#          <input type="date" name="deadline" placeholder="Enter a date">#}
+          <input type="number" name="goal" min="0" step="any" placeholder="Enter a goal">
+{#          <input type="date" name="launched" placeholder="Enter a date">#}
+          <input type="number" name="pledged" min="0" step="any" placeholder="Enter the amount pledged by the crowd">
+          <input type="number" name="backers" placeholder="Enter number of backers">
+{#          <input type="text" name="country" value="US" placeholder="Enter a country">#}
+{#          <input type="number" name="usd_pledged" value=2100 min="0" step="any" placeholder="Enter a usd_pledged">#}
+          <input type="number" name="usd_pledged_real" min="0" step="any" placeholder="Enter a pledged amount in US dollar">
+          <input type="number" name="usd_goal_real" min="0" step="any" placeholder="Enter a goal in US dollar">
+          <input type="submit" value="Submit">
+        </form>
+      </div>
+      <div>
+        {% for user in users %}
+        <span class="stack">
+          {{ user }}
+        </span>
+        {% endfor %}
+      </div>
+      {% endblock %}
+    </article>
+  </body>
+</html>
