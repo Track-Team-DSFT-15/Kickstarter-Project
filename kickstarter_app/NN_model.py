@@ -1,8 +1,11 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
-from tensorflow.keras.models import Sequential
+from tensorflow.keras.models import Sequential, save_model, load_model, Model
 from tensorflow.keras.layers import Dense
 from zip_unpack import zf
+import pickle
+import types
+import tempfile
 
 
 # Define the numeric features
@@ -54,4 +57,4 @@ model.fit(X, y, epochs=10, batch_size=10, verbose=0);
 
 print('Model accuracy: ', model.evaluate(X, y)[1]*100)
 
-
+model.save('kevin_model')
