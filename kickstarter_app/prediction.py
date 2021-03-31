@@ -19,6 +19,6 @@ def predict_user():
     #                                'usd_pledged_real', 'usd_goal_real'])
     # dictionary = User.query.all()[-1].__dict__
     # df = df.append(dictionary, ignore_index=True)
-    loaded_model = joblib.load('kickstarter_app/kickstarter_nn_model')
+    loaded_model = joblib.load('kickstarter_nn_model')
     # loaded_model = keras.models.load_model('kickstarter_app/kickstarter_nn_model')
     return str(loaded_model.predict(df, batch_size=10))
