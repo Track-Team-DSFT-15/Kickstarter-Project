@@ -33,49 +33,50 @@ def create_app():
             id = User.query.all()[-1].id + 1
         else:
             id = 0
-        project_name = request.values['project_name']
-        category = request.values['category']
-        main_category = request.values['main_category']
-        currency = request.values['currency']
-        deadline = pd.to_datetime(request.values['deadline'])
+        # project_name = request.values['project_name']
+        # category = request.values['category']
+        # main_category = request.values['main_category']
+        # currency = request.values['currency']
+        # deadline = pd.to_datetime(request.values['deadline'])
         goal = request.values['goal']
-        launched = pd.to_datetime(request.values['launched'])
+        # launched = pd.to_datetime(request.values['launched'])
         pledged = request.values['pledged']
         backers = request.values['backers']
-        country = request.values['country']
-        usd_pledged = request.values['usd_pledged']
+        # country = request.values['country']
+        # usd_pledged = request.values['usd_pledged']
         usd_pledged_real = request.values['usd_pledged_real']
         usd_goal_real = request.values['usd_goal_real']
-        days = deadline - launched
-        days = int(days.days)
+        # days = deadline - launched
+        # days = int(days.days)
 
         record = User(id=id,
-                      project_name=project_name,
-                      category=category,
-                      main_category=main_category,
-                      currency=currency,
+                      # project_name=project_name,
+                      # category=category,
+                      # main_category=main_category,
+                      # currency=currency,
                       goal=goal,
                       pledged=pledged,
                       backers=backers,
-                      country=country,
-                      usd_pledged=usd_pledged,
+                      # country=country,
+                      # usd_pledged=usd_pledged,
                       usd_pledged_real=usd_pledged_real,
                       usd_goal_real=usd_goal_real,
-                      days=days)
+                      # days=days,
+                      )
         DB.session.add(record)
         DB.session.commit()
         return render_template("user.html",
-                               project_name=project_name,
-                               category=category,
-                               main_category=main_category,
-                               currency=currency,
-                               deadline=deadline,
+                               # project_name=project_name,
+                               # category=category,
+                               # main_category=main_category,
+                               # currency=currency,
+                               # deadline=deadline,
                                goal=goal,
-                               launched=launched,
+                               # launched=launched,
                                pledged=pledged,
                                backers=backers,
-                               country=country,
-                               usd_pledged=usd_pledged,
+                               # country=country,
+                               # usd_pledged=usd_pledged,
                                usd_pledged_real=usd_pledged_real,
                                usd_goal_real=usd_goal_real)
 
