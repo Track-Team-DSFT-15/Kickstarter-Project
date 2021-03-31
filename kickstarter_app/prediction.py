@@ -3,7 +3,7 @@ from sklearn.linear_model import LogisticRegression
 from .models import User, DB
 import pandas as pd
 import pickle
-
+from NN_model import m
 
 
 
@@ -17,4 +17,4 @@ def predict_user():
     # dictionary = User.query.all()[-1].__dict__
     # df = df.append(dictionary, ignore_index=True)
     loaded_model = pickle.load(open('test_model', 'rb'))
-    return str(loaded_model.predict(df))
+    return str(loaded_model.evaluate(df))
