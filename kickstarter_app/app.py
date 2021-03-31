@@ -20,10 +20,10 @@ def create_app():
         return render_template("base.html")
 
     # Repl
-    @app.route("/repl")
-    def repl():
-        pred = predict_user()
-        return str(pred)
+    # @app.route("/prediction")
+    # def prediction():
+    #
+    #     return output
 
     # endpoint == "user_submitted"
 
@@ -65,20 +65,25 @@ def create_app():
                       )
         DB.session.add(record)
         DB.session.commit()
-        return render_template("user.html",
+        pred = predict_user()
+        if pred == '[[0.]]':
+            output = 'Your kickstarter will fail! Good Luck!'
+        else:
+            output = 'Your destined for success. Go forth!'
+        return render_template("user.html", output=output)
                                # project_name=project_name,
                                # category=category,
                                # main_category=main_category,
                                # currency=currency,
                                # deadline=deadline,
-                               goal=goal,
+                               # goal=goal,
                                # launched=launched,
-                               pledged=pledged,
-                               backers=backers,
+                               # pledged=pledged,
+                               # backers=backers,
                                # country=country,
                                # usd_pledged=usd_pledged,
-                               usd_pledged_real=usd_pledged_real,
-                               usd_goal_real=usd_goal_real)
+                               # usd_pledged_real=usd_pledged_real,
+                               # usd_goal_real=usd_goal_real)
 
     # endpoint == "reset"
 
