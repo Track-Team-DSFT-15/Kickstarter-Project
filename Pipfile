@@ -12,6 +12,7 @@ spacy = "*"
 sklearn = "*"
 notebook = "*"
 category-encoders = "*"
+gunicorn = "*"
 
 [dev-packages]
 
