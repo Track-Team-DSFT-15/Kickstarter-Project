@@ -15,7 +15,7 @@ def create_app():
     DB.init_app(app)
     # endpoint == "/"
 
-    @app.route("/")
+    @app.route("/", methods=["GET", "POST"])
     def root():
         return render_template("base.html")
 
@@ -27,7 +27,7 @@ def create_app():
 
     # endpoint == "user_submitted"
 
-    @app.route("/user_submitted", methods=["POST"])
+    @app.route("/user_submitted", methods=["GET", "POST"])
     def user_submitted():
         if User.query.filter_by(id='0').count() > 0:
             id = User.query.all()[-1].id + 1
@@ -87,7 +87,7 @@ def create_app():
 
     # endpoint == "reset"
 
-    @app.route("/reset")
+    @app.route("/reset", methods=["GET", "POST"])
     def reset():
         DB.drop_all()
         DB.create_all()
